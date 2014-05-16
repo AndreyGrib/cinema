@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^api/cinema/(.+)/schedule(\?(.+)){0,1}$ ?api=1&cinema=1&name=$1&schedule=1&$3 [QSA,L]
+RewriteRule ^api/film/(.+)/schedule$ ?api=1&film=1&name=$1&schedule=1 [QSA,L]
+RewriteRule ^api/session/(.+)/places$ ?api=1&session=1&id=$1&places=1 [QSA,L]
+RewriteRule ^api/tickets/buy?(.+)$ ?api=1&tickets=1&buy&$1 [NC,P]
+RewriteRule ^api/tickets/reject/(.+)$ ?api=1&tickets=1&reject&id_order=$1 [NC,P]
