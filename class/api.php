@@ -19,9 +19,9 @@ class API{
 				s.date,
 				m.name AS m_name
 			FROM cinema c
-			LEFT JOIN hall h ON h.id_cinema = c.id
-			LEFT JOIN session s ON s.id_hall = h.id
-			LEFT JOIN movie m ON m.id = s.id_movie
+			JOIN hall h ON h.id_cinema = c.id
+			JOIN session s ON s.id_hall = h.id
+			JOIN movie m ON m.id = s.id_movie
 			WHERE 1 = 1
 				AND c.name = '$cinema_name_sql'
 				$where
@@ -47,9 +47,9 @@ class API{
 				s.date,
 				m.name AS m_name
 			FROM cinema c
-			LEFT JOIN hall h ON h.id_cinema = c.id
-			LEFT JOIN session s ON s.id_hall = h.id
-			LEFT JOIN movie m ON m.id = s.id_movie
+			JOIN hall h ON h.id_cinema = c.id
+			JOIN session s ON s.id_hall = h.id
+			JOIN movie m ON m.id = s.id_movie
 			WHERE m.name = '$movie_name_sql'
 		";
 		$res = $db->query($sql);
